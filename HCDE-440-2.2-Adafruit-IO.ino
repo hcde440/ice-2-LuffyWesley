@@ -1,34 +1,28 @@
-// Adafruit IO Digital Input Example
-// Tutorial Link: https://learn.adafruit.com/adafruit-io-basics-digital-input
-//
-// Adafruit invests time and resources providing this open source code.
-// Please support Adafruit and open source hardware by purchasing
-// products from Adafruit!
-//
-// Written by Todd Treece for Adafruit Industries
-// Copyright (c) 2016 Adafruit Industries
-// Licensed under the MIT license.
-//
-// All text above must be included in any redistribution.
-
-/************************** Configuration ***********************************/
+// The code below send analog values to Adafruit IO froma photocell and digital values from a button.
 
 // edit the config.h tab and enter your Adafruit IO credentials
 // and any additional configuration needed for WiFi, cellular,
 // or ethernet clients.
-#include "config.h"0
-
-/************************ Example Starts Here *******************************/
+#include "config.h"
 
 // digital pin 5
-#define BUTTON_PIN 2
+#define BUTTON_PIN 5
+// analog pin 0
+#define PHOTOCELL_PIN A0
 
 // button state
-bool current = false;
-bool last = false;
+bool buttonCurrent = false;
+bool buttonLast = false;
 
-// set up the 'digital' feed
+// photocell state
+int photoCurrent = 0;
+int photoLast = -1; 
+
+// set up the 'digital' feed (button)
 AdafruitIO_Feed *digital = io.feed("button");
+
+// set up the 'analog' feed (photocell)
+AdafruitIO_Feed *analog = io.feed("analog");
 
 void setup() {
 
@@ -69,24 +63,43 @@ void loop() {
   // io.adafruit.com, and processes any incoming data.
   io.run();
 
-  // grab the current state of the button.
+  // grab the buttonCurrent state of the photocell
+  photoCurrent = analogRead(PHOTOCELL_PIN);
+
+  // return if the value hasn't changed
+  if (photoCurrent == photoLast)
+    return;
+
+  // Save the buttonCurrent state to the analog feed
+  // Uncomment the code below (74 - 76) to interact with the photocell 
+  // Comment the code below if you want to play with the button
+  // Serial.print("sending light -> ");
+  // Serial.println(photoCurrent);
+  // analog->save(photoCurrent);
+
+  // store buttonLast photocell state
+  photoLast = photoCurrent;
+
+  // grab the buttonCurrent state of the button.
   // we have to flip the logic because we are
   // using a pullup resistor.
   if(digitalRead(BUTTON_PIN) == LOW)
-    current = true;
+    buttonCurrent = true;
   else
-    current = false;
+    buttonCurrent = false;
 
   // return if the value hasn't changed
-  if(current == last)
+  if(buttonCurrent == buttonLast)
     return;
 
-  // save the current state to the 'digital' feed on adafruit io
+  // save the buttonCurrent state to the 'digital' feed on adafruit io
+  // Uncomment the code below (96 - 98) to interact with the button
+  // Comment the code below if you want to play with the photocell
   Serial.print("sending button -> ");
-  Serial.println(current);
-  digital->save(current);
+  Serial.println(buttonCurrent);
+  digital->save(buttonCurrent);
 
-  // store last button state
-  last = current;
+  // store buttonLast button state
+  buttonLast = buttonCurrent;
 
 }
