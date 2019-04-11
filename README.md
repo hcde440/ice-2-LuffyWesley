@@ -10,6 +10,6 @@ The code sends analog values to Adafruit IO froma photocell and digital values f
 ### PhotoCell Simplified
 ![Photo_Simplified](photo_simplified.png)
 
-## Tutorials Used
+## Tutorials Followed
 1. [Analog Input](https://learn.adafruit.com/adafruit-io-basics-analog-input/overview-uniontownlabs)
 2. [Digital Input](https://learn.adafruit.com/adafruit-io-basics-digital-input/overview)
