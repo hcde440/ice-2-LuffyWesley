@@ -1,10 +1,13 @@
 # HCDE-440-2.2-Adafruit-IO
 
-The code send analog values to Adafruit IO froma photocell and digital values from a button.
+The code sends analog values to Adafruit IO froma photocell and digital values from a button.
 
 ## Schematic 
+Button
 ![Button](button.png)
+PhotoCell Complicated [Voltage Divider Calulator][http://www.ohmslawcalculator.com/voltage-divider-calculator]
 ![Photo_Complicated](photo_complicated.png)
+PhotoCell Simplified
 ![Photo_Simplified](photo_simplified.png)
 
 ## Tutorials Used

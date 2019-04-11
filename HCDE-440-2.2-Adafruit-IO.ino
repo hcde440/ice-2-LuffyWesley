@@ -1,4 +1,4 @@
-// The code below send analog values to Adafruit IO froma photocell and digital values from a button.
+// The code below sends analog values to Adafruit IO froma photocell and digital values from a button.
 
 // edit the config.h tab and enter your Adafruit IO credentials
 // and any additional configuration needed for WiFi, cellular,

@@ -13,8 +13,6 @@
 //   - Feather M0 WiFi -> https://www.adafruit.com/products/3010
 //   - Feather WICED -> https://www.adafruit.com/products/3056
 
-//#define WIFI_SSID       "Badger's new Phone"
-//#define WIFI_PASS       "12121212"
 #define WIFI_SSID       "University of Washington"
 #define WIFI_PASS       ""
 
