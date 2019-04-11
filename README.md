@@ -5,7 +5,7 @@ The code sends analog values to Adafruit IO froma photocell and digital values f
 ## Schematic 
 ### Button
 ![Button](button.png)
-### PhotoCell Complicated [Voltage Divider Calulator](http://www.ohmslawcalculator.com/voltage-divider-calculator)
+### PhotoCell Complicated ([Voltage Divider Calulator](http://www.ohmslawcalculator.com/voltage-divider-calculator))
 ![Photo_Complicated](photo_complicated.png)
 ### PhotoCell Simplified
 ![Photo_Simplified](photo_simplified.png)
