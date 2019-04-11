@@ -1,6 +1,6 @@
 # HCDE-440-2.2-Adafruit-IO
 
-The code sends analog values to Adafruit IO froma photocell and digital values from a button.
+The code sends analog values to Adafruit IO froma photocell and digital values from a button. Here is the link to my Adafruit.io [dashboard](https://io.adafruit.com/LuffyWesley/dashboards/analog) that houses feeds for both button and photocell.
 
 ## Schematic 
 ### Button
